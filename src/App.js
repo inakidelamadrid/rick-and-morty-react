@@ -1,16 +1,20 @@
 import {Suspense} from 'react';
 import './App.css';
 
-import {createResource} from './PersonAPI';
-import Person from './Person';
+// import {createResource} from './PersonAPI';
+import {getAllEpisodes} from './RickAndMortyAPI';
 
-const resource = createResource();
+import EpisodesList from './EpisodesList';
+// import Person from './Person';
+
+// const resource = createResource();
+const episodes = getAllEpisodes();
 
 function App() {
   return (
     <div className="App">
       <Suspense fallback={<h1>Loading</h1>}>
-        <Person resource={resource} />
+        <EpisodesList episodes={episodes} />
       </Suspense>
     </div>
   );
